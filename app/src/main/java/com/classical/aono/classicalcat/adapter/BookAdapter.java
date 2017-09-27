@@ -1,6 +1,7 @@
 package com.classical.aono.classicalcat.adapter;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -24,7 +25,8 @@ import java.util.List;
  */
 
 public class BookAdapter extends RecyclerView.Adapter<BookViewHolder> {
-    private BooksFragment booksFragment;
+    //private BooksFragment booksFragment;
+    private Fragment fragment;
     private final int mBackground;
     private List<Book> mBooks = new ArrayList<Book>();
     private final TypedValue mTypedValue = new TypedValue();
@@ -35,8 +37,8 @@ public class BookAdapter extends RecyclerView.Adapter<BookViewHolder> {
     private int lastAnimatedPosition = -1;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public BookAdapter(BooksFragment booksFragment, Context context) {
-        this.booksFragment = booksFragment;
+    public BookAdapter(Fragment fragment, Context context) {
+        this.fragment = fragment;
         context.getTheme().resolveAttribute(R.attr.selectableItemBackground, mTypedValue, true);
         mBackground = mTypedValue.resourceId;
     }
@@ -49,7 +51,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookViewHolder> {
 
         if (position > lastAnimatedPosition) {
             lastAnimatedPosition = position;
-            view.setTranslationY(Utils.getScreenHeight(booksFragment.getActivity()));
+            view.setTranslationY(Utils.getScreenHeight(fragment.getActivity()));
             view.animate()
                     .translationY(0)
                     .setStartDelay(100 * position)
