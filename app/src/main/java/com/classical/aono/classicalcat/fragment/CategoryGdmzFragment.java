@@ -1,4 +1,4 @@
-package com.classical.aono.classicalcat.Fragment;
+package com.classical.aono.classicalcat.fragment;
 
 import android.support.v4.app.Fragment;
 

@@ -1,4 +1,4 @@
-package com.classical.aono.classicalcat.Domain;
+package com.classical.aono.classicalcat.domain;
 
 import java.io.Serializable;
 import java.util.Arrays;

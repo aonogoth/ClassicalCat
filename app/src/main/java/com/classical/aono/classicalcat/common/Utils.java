@@ -1,4 +1,4 @@
-package com.classical.aono.classicalcat.Common;
+package com.classical.aono.classicalcat.common;
 
 import android.content.Context;
 import android.content.res.Resources;
