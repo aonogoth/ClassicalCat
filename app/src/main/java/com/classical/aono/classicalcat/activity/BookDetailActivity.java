@@ -1,5 +1,6 @@
 package com.classical.aono.classicalcat.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
@@ -45,6 +46,7 @@ public class BookDetailActivity extends AppCompatActivity {
         mBook = (Book) getIntent().getSerializableExtra("book");
         CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle(mBook.getTitle());
+        //collapsingToolbar.setExpandedTitleColor(Color.BLUE);
 
         ImageView ivImage = (ImageView) findViewById(R.id.ivImage);
         Glide.with(ivImage.getContext())
@@ -64,7 +66,7 @@ public class BookDetailActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager mViewPager) {
         MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(DetailFragment.newInstance(mBook.getSummary()), "速览");
+        adapter.addFragment(DetailFragment.newInstance(mBook.getSummary()+mBook.getSummary()+mBook.getSummary()+mBook.getSummary()+mBook.getSummary()), "速览");
         adapter.addFragment(DetailFragment.newInstance(mBook.getAuthor_intro()), "简介");
         adapter.addFragment(DetailFragment.newInstance(mBook.getCatalog()), "花絮");
         mViewPager.setAdapter(adapter);
