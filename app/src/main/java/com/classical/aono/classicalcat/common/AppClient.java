@@ -25,7 +25,8 @@ import retrofit2.http.QueryMap;
 
 public class AppClient {
     public interface HttpService {
-        @GET("https://api.douban.com/v2/book/search")
+       // @GET("https://api.douban.com/v2/book/search")
+       @GET("http://118.178.95.56:8084/api/aono/GetWorkList")
         Call<BookResponse> getBooks(@QueryMap Map<String, String> options);
 
 

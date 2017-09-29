@@ -1,9 +1,10 @@
 package com.classical.aono.classicalcat.http;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
-import com.classical.aono.classicalcat.common.AppClient;
 import com.classical.aono.classicalcat.domain.Book;
+import com.classical.aono.classicalcat.domain.Work;
 import com.google.android.agera.Result;
 import com.google.android.agera.Supplier;
 import com.google.gson.Gson;
@@ -12,10 +13,7 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -23,10 +21,10 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * Created by admin on 2017/9/27.
+ * Created by gotha on 2017/9/29.
  */
 
-public class BooksSupplier implements Supplier<Result<List<Book>>> {
+public class WorksSupplier implements Supplier<Result<List<Work>>> {
 
     public String key;
 
@@ -34,7 +32,7 @@ public class BooksSupplier implements Supplier<Result<List<Book>>> {
         this.key = key;
     }
 
-    public BooksSupplier(String key) {
+    public WorksSupplier(String key) {
         this.key = key;
     }
 
@@ -47,7 +45,7 @@ public class BooksSupplier implements Supplier<Result<List<Book>>> {
         return BASE_URL + relativeUrl;
     }
 
-    private List<Book> getBooks() {
+    private List<Work> getBooks() {
         HttpUrl url = HttpUrl.parse(getAbsoluteUrl("GetWorkList"))
                 .newBuilder()
                 .addQueryParameter("Category",key)
@@ -63,41 +61,27 @@ public class BooksSupplier implements Supplier<Result<List<Book>>> {
         try {
             Response response = client.newCall(request).execute();
             JSONObject json = new JSONObject(response.body().string());
-            JSONArray jaBooks = json.optJSONArray("books");
+            //Log.e("Hehe",json.toString());
+            JSONArray jaBooks = json.optJSONArray("data");
             Gson gson = new Gson();
-            List<Book> books = gson.fromJson(jaBooks.toString(), new TypeToken<List<Book>>() {
+            List<Work> works = gson.fromJson(jaBooks.toString(), new TypeToken<List<Work>>() {
             }.getType());
-            return books;
+            return works;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
-//    private List<Book> getBooks() {
-//        Map<String, String > params = new HashMap<>();
-//        params.put("Category",key);
-////        params.put("q",key);
-////        params.put("start","0");
-////        params.put("end","50");
-//        try {
-//            BookResponse bookResponse = AppClient.httpService.getBooks(params).execute().body();
-//            return bookResponse.getBooks();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
-
 
     @NonNull
     @Override
-    public Result<List<Book>> get() {
-        List<Book> books = getBooks();
-        if (books == null) {
+    public Result<List<Work>> get() {
+        List<Work> works = getBooks();
+        if (works == null) {
             return Result.failure();
         } else {
-            return Result.success(books);
+            return Result.success(works);
         }
     }
 }
