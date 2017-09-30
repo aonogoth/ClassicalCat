@@ -81,7 +81,8 @@ public class BooksFragment extends Fragment implements Updatable {
         public void onItemClick(View view, int position) {
             Work book = workAdapter.getBook(position);
             Intent intent = new Intent(getActivity(), BookDetailActivity.class);
-            intent.putExtra("book", book);
+            //intent.putExtra("book", book);
+            intent.putExtra("workid", book.getID());
 
             ActivityOptionsCompat options =
                     ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
@@ -95,11 +96,11 @@ public class BooksFragment extends Fragment implements Updatable {
 
     public class SearchObservable extends BaseObservable {
 
-        public void doSearch(String key) {
-            //booksSupplier.setKey(key);
-//            worksSupplier.setKey(key);
-//            dispatchUpdate();
-        }
+//        public void doSearch(String key) {
+//            //booksSupplier.setKey(key);
+////            worksSupplier.setKey(key);
+////            dispatchUpdate();
+//        }
 
     }
 
@@ -154,11 +155,11 @@ public class BooksFragment extends Fragment implements Updatable {
         worksRepository.removeUpdatable(this);
     }
 
-    private void doSearch(String keyword) {
-        mProgressBar.setVisibility(View.VISIBLE);
-        workAdapter.clearItems();
-        searchObservable.doSearch(keyword);
-    }
+//    private void doSearch(String keyword) {
+//        mProgressBar.setVisibility(View.VISIBLE);
+//        workAdapter.clearItems();
+//        searchObservable.doSearch(keyword);
+//    }
 
 //    private void setUpFAB(View view) {
 //        mFabButton = (FloatingActionButton) view.findViewById(R.id.fab_normal);

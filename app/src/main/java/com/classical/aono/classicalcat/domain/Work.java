@@ -14,6 +14,11 @@ public class Work implements Serializable {
     private String ForeignName;
     private String Remark;
     private String ImageUrlList;
+    private String ImageUrlDetail;
+    private String FileDownloadUrl;
+    private String SL;
+    private String JJ;
+    private String HX;
 
     public String getID() {
         return ID;
@@ -71,6 +76,46 @@ public class Work implements Serializable {
         ImageUrlList = imageUrlList;
     }
 
+    public String getImageUrlDetail() {
+        return ImageUrlDetail;
+    }
+
+    public void setImageUrlDetail(String imageUrlDetail) {
+        ImageUrlDetail = imageUrlDetail;
+    }
+
+    public String getFileDownloadUrl() {
+        return FileDownloadUrl;
+    }
+
+    public void setFileDownloadUrl(String fileDownloadUrl) {
+        FileDownloadUrl = fileDownloadUrl;
+    }
+
+    public String getSL() {
+        return SL;
+    }
+
+    public void setSL(String SL) {
+        this.SL = SL;
+    }
+
+    public String getJJ() {
+        return JJ;
+    }
+
+    public void setJJ(String JJ) {
+        this.JJ = JJ;
+    }
+
+    public String getHX() {
+        return HX;
+    }
+
+    public void setHX(String HX) {
+        this.HX = HX;
+    }
+
     @Override
     public String toString() {
         return "Work{" +
@@ -81,6 +126,11 @@ public class Work implements Serializable {
                 ", ForeignName='" + ForeignName + '\'' +
                 ", Remark='" + Remark + '\'' +
                 ", ImageUrlList='" + ImageUrlList + '\'' +
+                ", ImageUrlDetail='" + ImageUrlDetail + '\'' +
+                ", FileDownloadUrl='" + FileDownloadUrl + '\'' +
+                ", SL='" + SL + '\'' +
+                ", JJ='" + JJ + '\'' +
+                ", HX='" + HX + '\'' +
                 '}';
     }
 }
