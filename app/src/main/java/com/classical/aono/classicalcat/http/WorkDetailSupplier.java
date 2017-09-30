@@ -62,9 +62,9 @@ public class WorkDetailSupplier implements Supplier<Result<Work>> {
             Log.e("Hehe",json.toString());
             JSONArray jaBooks = json.optJSONArray("data");
             Gson gson = new Gson();
-            Work works = gson.fromJson(jaBooks.toString(), new TypeToken<Work>() {
+            List<Work> works = gson.fromJson(jaBooks.toString(), new TypeToken<List<Work>>() {
             }.getType());
-            return works;
+            return works.get(0);
         } catch (Exception e) {
             e.printStackTrace();
         }

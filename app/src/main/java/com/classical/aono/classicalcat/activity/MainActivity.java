@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity
     }
     private void switchToBookZtmz() {
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new CategoryZtmzFragment()).commit();
-        mToolbar.setTitle("侦探名著");
+        mToolbar.setTitle("推理名著");
     }
 
     private void setupDrawerContent(NavigationView navigationView) {

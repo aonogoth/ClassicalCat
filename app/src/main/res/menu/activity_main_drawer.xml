@@ -17,7 +17,7 @@
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="侦探名著" />
+            android:title="推理名著" />
     </group>
 
     <item android:title="其他">

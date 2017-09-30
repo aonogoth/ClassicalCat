@@ -63,6 +63,7 @@ public class WorkAdapter extends RecyclerView.Adapter<BookViewHolder> {
     public void updateItems(List<Work> books, boolean animated) {
         animateItems = animated;
         lastAnimatedPosition = -1;
+        mBooks.removeAll(mBooks);
         mBooks.addAll(books);
         notifyDataSetChanged();
     }
