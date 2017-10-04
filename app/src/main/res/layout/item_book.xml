@@ -8,8 +8,8 @@
     android:layout_marginRight="5dp"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="10dp">
+    app:cardCornerRadius="6dp"
+    app:cardElevation="7dp">
 
     <LinearLayout
         style="@style/CardView.Content"
@@ -20,8 +20,8 @@
         <ImageView
             android:id="@+id/ivBook"
             android:transitionName="transition_book_img"
-            android:layout_width="109dp"
-            android:layout_height="135dp"
+            android:layout_width="90dp"
+            android:layout_height="120dp"
             android:src="@drawable/book1" />
 
         <LinearLayout

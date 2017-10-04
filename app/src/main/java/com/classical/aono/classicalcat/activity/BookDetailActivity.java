@@ -76,7 +76,6 @@ public class BookDetailActivity extends AppCompatActivity implements Updatable{
         workId = getIntent().getStringExtra("workid");
 
         setUpRepository();
-
     }
 
     @Override
