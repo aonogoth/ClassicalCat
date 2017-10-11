@@ -91,8 +91,18 @@ public class WorkAdapter extends RecyclerView.Adapter<BookViewHolder> {
         runEnterAnimation(holder.itemView, position);
         Work book = mBooks.get(position);
         holder.tvTitle.setText(book.getName());
-        String desc = "\n作者: " + book.getCountry()+" | "+ book.getAuthor() + "\n\n别称: " + book.getForeignName();
-        holder.tvDesc.setText(desc);
+        if(book.getForeignName() != null && book.getForeignName() != "")
+        {
+            String desc = "\n作者: " + book.getCountry()+" | "+ book.getAuthor() + "\n\n别称: " + book.getForeignName();
+            holder.tvDesc.setText(desc);
+        }
+        else
+        {
+            String desc = "\n作者: " + book.getCountry()+" | "+ book.getAuthor() + "\n\n";
+            holder.tvDesc.setText(desc);
+        }
+
+
         Glide.with(holder.ivBook.getContext())
                 .load("http://118.178.95.56:8086/UploadFiles/"+book.getImageUrlList())
                 .fitCenter()

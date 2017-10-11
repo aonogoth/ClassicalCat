@@ -13,10 +13,12 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.classical.aono.classicalcat.R;
+import com.classical.aono.classicalcat.fragment.AboutFragment;
 import com.classical.aono.classicalcat.fragment.BooksFragment;
 import com.classical.aono.classicalcat.fragment.CategoryGdmzFragment;
 import com.classical.aono.classicalcat.fragment.CategoryJdmzFragment;
 import com.classical.aono.classicalcat.fragment.CategoryZtmzFragment;
+import com.classical.aono.classicalcat.fragment.SettingFragment;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -81,6 +83,16 @@ public class MainActivity extends AppCompatActivity
         mToolbar.setTitle("推理名著");
     }
 
+    private void switchToAbout() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new AboutFragment()).commit();
+        mToolbar.setTitle("关于");
+    }
+    private void switchToSetting() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new SettingFragment()).commit();
+        mToolbar.setTitle("设置");
+    }
+
+
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -99,6 +111,12 @@ public class MainActivity extends AppCompatActivity
                                 break;
                             case R.id.nav_manage:
                                 switchToBookZtmz();
+                                break;
+                            case R.id.nav_share:
+                                switchToAbout();
+                                break;
+                            case R.id.nav_send:
+                                switchToSetting();
                                 break;
                         }
                         menuItem.setChecked(true);
