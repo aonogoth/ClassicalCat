@@ -22,8 +22,9 @@ import com.classical.aono.classicalcat.R;
 import com.classical.aono.classicalcat.common.ThreadPool;
 import com.classical.aono.classicalcat.domain.Book;
 import com.classical.aono.classicalcat.domain.Work;
-import com.classical.aono.classicalcat.fragment.BooksFragment;
-import com.classical.aono.classicalcat.fragment.DetailFragment;
+import com.classical.aono.classicalcat.fragment.DetailHXFragment;
+import com.classical.aono.classicalcat.fragment.DetailJJFragment;
+import com.classical.aono.classicalcat.fragment.DetailSLFragment;
 import com.classical.aono.classicalcat.http.WorkDetailSupplier;
 import com.classical.aono.classicalcat.http.WorksSupplier;
 import com.google.android.agera.BaseObservable;
@@ -207,9 +208,9 @@ public class BookDetailActivity extends AppCompatActivity implements Updatable{
 
     private void setupViewPager(ViewPager mViewPager) {
         MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(DetailFragment.newInstance(mBook.getSL()), "速览");
-        adapter.addFragment(DetailFragment.newInstance(mBook.getJJ()), "简介");
-        adapter.addFragment(DetailFragment.newInstance(mBook.getHX()), "花絮");
+        adapter.addFragment(DetailSLFragment.newInstance(mBook.getSL()), "速览");
+        adapter.addFragment(DetailJJFragment.newInstance(mBook.getJJ()), "简介");
+        adapter.addFragment(DetailHXFragment.newInstance(mBook.getHX()), "花絮");
         mViewPager.setAdapter(adapter);
     }
 
