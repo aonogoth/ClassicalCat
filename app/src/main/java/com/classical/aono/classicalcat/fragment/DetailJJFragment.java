@@ -3,6 +3,7 @@ package com.classical.aono.classicalcat.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,8 @@ public class DetailJJFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail_jj, null);
         TextView tvInfo = (TextView) view.findViewById(R.id.tvInfo);
+        tvInfo.setTextSize(TypedValue.COMPLEX_UNIT_SP,17);
+        tvInfo.setLineSpacing(1,1.5f);
         tvInfo.setText(getArguments().getString("info"));
 //        tvInfo.setOnClickListener(new View.OnClickListener() {
 //            @Override

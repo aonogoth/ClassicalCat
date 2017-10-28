@@ -13,7 +13,23 @@ public class MaterialApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        AppClient.initAppClient();
-        DisplayUtil.init(this);
+//        AppClient.initAppClient();
+//        DisplayUtil.init(this);
     }
+
+    public String textSize;
+    public String getextSize() {
+        return textSize;
+    }
+    public void setTextSize(String textSize) {
+        this.textSize = textSize;
+    }
+    public String textLine;
+    public String getextLine() {
+        return textLine;
+    }
+    public void setTextLine(String textLine) {
+        this.textLine = textLine;
+    }
+
 }

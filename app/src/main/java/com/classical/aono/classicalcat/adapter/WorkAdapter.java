@@ -104,8 +104,9 @@ public class WorkAdapter extends RecyclerView.Adapter<BookViewHolder> {
 
 
         Glide.with(holder.ivBook.getContext())
-                .load("http://118.178.95.56:8086/UploadFiles/"+book.getImageUrlList())
+                .load("http://aono.yhdjmj.com/UploadFiles/"+book.getImageUrlList())
                 .fitCenter()
+                .skipMemoryCache(false)
                 .into(holder.ivBook);
     }
 

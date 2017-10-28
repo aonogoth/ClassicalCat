@@ -10,4 +10,10 @@
     <string name="drawer_close">Close</string>
     <string name="press_again_exit_app">再按一次退出程序</string>
 
+
+    <string name="settings_list_preference_dialog_title1">字号设置</string>
+    <string name="settings_list_preference_dialog_title2">行间距设置</string>
+    <string name="settings_list_preference_title1">字号设置</string>
+    <string name="settings_list_preference_title2">行间距设置</string>
+
 </resources>

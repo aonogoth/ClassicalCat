@@ -42,10 +42,10 @@
 
                     <ImageView
                         android:id="@+id/img_card_about_1"
-                        android:layout_width="128dp"
-                        android:layout_height="128dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:background="@color/light_grey"
-                        android:scaleType="center"
+                        android:scaleType="centerInside"
                         android:src="@mipmap/ic_launcher_round" />
 
                     <RelativeLayout
