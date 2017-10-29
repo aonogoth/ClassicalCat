@@ -20,5 +20,19 @@
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
         android:title="@string/settings_list_preference_title2" />
+    <PreferenceCategory
+        android:title="常规">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:enabled="true"
+            android:key="auto_update"
+            android:title="自动更新应用"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="版本更新">
+        <Preference
+            android:key="version"
+            android:title="当前版本："/>
+    </PreferenceCategory>
 
 </PreferenceScreen>
