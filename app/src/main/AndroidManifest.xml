@@ -27,6 +27,9 @@
             android:name=".activity.BookDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".activity.SettingsActivity" />
+
     </application>
 
 </manifest>

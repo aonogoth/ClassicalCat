@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <ListPreference
-        android:defaultValue="60"
-        android:dialogTitle="@string/settings_list_preference_dialog_title1"
-        android:entries="@array/settings_list_preference_titles"
-        android:entryValues="@array/settings_list_preference_values"
-        android:key="sync_frequency"
-        android:negativeButtonText="@null"
-        android:positiveButtonText="@null"
-        android:title="@string/settings_list_preference_title1" />
-
-    <ListPreference
-        android:defaultValue="60"
-        android:dialogTitle="@string/settings_list_preference_dialog_title2"
-        android:entries="@array/settings_list_preference_titles"
-        android:entryValues="@array/settings_list_preference_values"
-        android:key="sync_frequency"
-        android:negativeButtonText="@null"
-        android:positiveButtonText="@null"
-        android:title="@string/settings_list_preference_title2" />
     <PreferenceCategory
-        android:title="常规">
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:enabled="true"
-            android:key="auto_update"
-            android:title="自动更新应用"/>
-    </PreferenceCategory>
+        android:title="阅读设置">
+        <ListPreference
+            android:defaultValue="3"
+            android:dialogTitle="@string/settings_list_preference_dialog_title1"
+            android:entries="@array/zitidaxiao_title"
+            android:entryValues="@array/zitidaxiao_value"
+            android:key="zihaoshezhi"
+            android:summary="标准"
+            android:title="@string/settings_list_preference_title1" />
 
-    <PreferenceCategory android:title="版本更新">
-        <Preference
-            android:key="version"
-            android:title="当前版本："/>
-    </PreferenceCategory>
+        <ListPreference
+            android:defaultValue="3"
+            android:dialogTitle="@string/settings_list_preference_dialog_title2"
+            android:entries="@array/hangjianju_title"
+            android:entryValues="@array/hangjianju_value"
+            android:key="hangjianjushezhi"
+            android:summary="标准"
+            android:title="@string/settings_list_preference_title2" />
+
+        </PreferenceCategory>
+
+
+    <!--<PreferenceCategory-->
+        <!--android:title="常规">-->
+        <!--<CheckBoxPreference-->
+            <!--android:defaultValue="false"-->
+            <!--android:enabled="true"-->
+            <!--android:key="auto_update"-->
+            <!--android:title="自动更新应用"/>-->
+    <!--</PreferenceCategory>-->
+
+    <!--<PreferenceCategory android:title="版本更新">-->
+        <!--<Preference-->
+            <!--android:key="version"-->
+            <!--android:title="当前版本："/>-->
+    <!--</PreferenceCategory>-->
 
 </PreferenceScreen>

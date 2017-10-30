@@ -1,16 +1,14 @@
 package com.classical.aono.classicalcat.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.classical.aono.classicalcat.R;
 import com.classical.aono.classicalcat.fragment.AboutFragment;
@@ -18,8 +16,6 @@ import com.classical.aono.classicalcat.fragment.BooksFragment;
 import com.classical.aono.classicalcat.fragment.CategoryGdmzFragment;
 import com.classical.aono.classicalcat.fragment.CategoryJdmzFragment;
 import com.classical.aono.classicalcat.fragment.CategoryZtmzFragment;
-import com.classical.aono.classicalcat.fragment.SettingFragment;
-import com.classical.aono.classicalcat.fragment.SettingSCFragment;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -89,9 +85,8 @@ public class MainActivity extends AppCompatActivity
         mToolbar.setTitle("关于");
     }
     private void switchToSetting() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new SettingSCFragment()).commit();
-        getFragmentManager().beginTransaction().replace(R.id.frame_content, new SettingFragment()).commit();
-        mToolbar.setTitle("设置");
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
     }
 
 
