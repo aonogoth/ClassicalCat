@@ -3,6 +3,7 @@ package com.classical.aono.classicalcat.activity;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
@@ -215,7 +216,7 @@ public class BookDetailActivity extends AppCompatActivity implements Updatable{
     }
 
     static class MyPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragments = new ArrayList<>();
+       private final List<Fragment> mFragments = new ArrayList<>();
         private final List<String> mFragmentTitles = new ArrayList<>();
 
         public MyPagerAdapter(FragmentManager fm) {

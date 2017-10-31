@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.classical.aono.classicalcat.MaterialApplication;
 import com.classical.aono.classicalcat.R;
 import com.classical.aono.classicalcat.fragment.AboutFragment;
 import com.classical.aono.classicalcat.fragment.BooksFragment;
@@ -32,7 +33,6 @@ public class MainActivity extends AppCompatActivity
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {

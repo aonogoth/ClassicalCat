@@ -17,14 +17,14 @@ public class MaterialApplication extends Application {
 //        DisplayUtil.init(this);
     }
 
-    public String textSize;
+    public String textSize = "";
     public String getextSize() {
         return textSize;
     }
     public void setTextSize(String textSize) {
         this.textSize = textSize;
     }
-    public String textLine;
+    public String textLine = "";
     public String getextLine() {
         return textLine;
     }

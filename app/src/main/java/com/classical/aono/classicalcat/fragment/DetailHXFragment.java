@@ -1,14 +1,18 @@
 package com.classical.aono.classicalcat.fragment;
 
 import android.os.Bundle;
+import android.preference.ListPreference;
+import android.preference.PreferenceFragment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.classical.aono.classicalcat.MaterialApplication;
 import com.classical.aono.classicalcat.R;
 
 /**
@@ -16,6 +20,9 @@ import com.classical.aono.classicalcat.R;
  */
 
 public class DetailHXFragment extends Fragment {
+
+    String aaa = "";
+    String bbb = "";
 
     public static DetailHXFragment newInstance(String info) {
         Bundle args = new Bundle();
@@ -31,8 +38,30 @@ public class DetailHXFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail_hx, null);
         TextView tvInfo = (TextView) view.findViewById(R.id.tvInfo);
-        tvInfo.setTextSize(TypedValue.COMPLEX_UNIT_SP,17);
-        tvInfo.setLineSpacing(1,1.5f);
+        MaterialApplication ma = (MaterialApplication)getActivity().getApplication();
+        aaa = ma.getextLine();
+        bbb = ma.getextSize();
+
+        Log.e("aaa",aaa+"aono");
+        Log.e("bbb",bbb+"aono");
+        if(aaa == "")
+        {
+            tvInfo.setLineSpacing(1,1.5f);
+        }
+        else
+        {
+            tvInfo.setLineSpacing(1,Float.parseFloat(aaa));
+        }
+        if(bbb == "")
+        {
+            tvInfo.setTextSize(TypedValue.COMPLEX_UNIT_SP,17);
+        }
+        else
+        {
+            tvInfo.setTextSize(TypedValue.COMPLEX_UNIT_SP, Integer.parseInt(bbb));
+        }
+
+        //tvInfo.setLineSpacing(1,1.5f);
         tvInfo.setText(getArguments().getString("info"));
 //        tvInfo.setOnClickListener(new View.OnClickListener() {
 //            @Override
