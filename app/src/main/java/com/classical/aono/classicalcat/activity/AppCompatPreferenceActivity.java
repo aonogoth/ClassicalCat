@@ -16,7 +16,7 @@ import android.view.ViewGroup;
  * Created by gotha on 2017/10/30.
  */
 
-public class AppCompatPreferenceActivity extends PreferenceActivity {
+public abstract class AppCompatPreferenceActivity extends PreferenceActivity {
 
     private AppCompatDelegate mDelegate;
 

@@ -59,7 +59,7 @@ public class WorkDetailSupplier implements Supplier<Result<Work>> {
         try {
             Response response = client.newCall(request).execute();
             JSONObject json = new JSONObject(response.body().string());
-            Log.e("Hehe",json.toString());
+            //Log.e("Hehe",json.toString());
             JSONArray jaBooks = json.optJSONArray("data");
             Gson gson = new Gson();
             List<Work> works = gson.fromJson(jaBooks.toString(), new TypeToken<List<Work>>() {

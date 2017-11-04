@@ -2,6 +2,7 @@ package com.classical.aono.classicalcat.fragment;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.TypedValue;
@@ -17,7 +18,8 @@ import com.classical.aono.classicalcat.R;
  */
 
 public class DetailJJFragment extends Fragment {
-
+    String aaa = "";
+    String bbb = "";
     public static DetailJJFragment newInstance(String info) {
         Bundle args = new Bundle();
         DetailJJFragment fragment = new DetailJJFragment();
@@ -32,8 +34,26 @@ public class DetailJJFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail_jj, null);
         TextView tvInfo = (TextView) view.findViewById(R.id.tvInfo);
-        tvInfo.setTextSize(TypedValue.COMPLEX_UNIT_SP,17);
-        tvInfo.setLineSpacing(1,1.5f);
+        aaa = PreferenceManager.getDefaultSharedPreferences(getContext()).getAll().get("hangjianjushezhi").toString();
+        bbb = PreferenceManager.getDefaultSharedPreferences(getContext()).getAll().get("zihaoshezhi").toString();
+        if(aaa == "" || aaa.isEmpty())
+        {
+            tvInfo.setLineSpacing(1,1.5f);
+        }
+        else
+        {
+            tvInfo.setLineSpacing(1,Float.parseFloat(aaa));
+        }
+        if(bbb == ""|| bbb.isEmpty())
+        {
+            tvInfo.setTextSize(TypedValue.COMPLEX_UNIT_SP,17);
+        }
+        else
+        {
+            tvInfo.setTextSize(TypedValue.COMPLEX_UNIT_SP, Integer.parseInt(bbb));
+        }
+//        tvInfo.setTextSize(TypedValue.COMPLEX_UNIT_SP,17);
+//        tvInfo.setLineSpacing(1,1.5f);
         tvInfo.setText(getArguments().getString("info"));
 //        tvInfo.setOnClickListener(new View.OnClickListener() {
 //            @Override

@@ -1,10 +1,12 @@
 package com.classical.aono.classicalcat.activity;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -39,18 +41,17 @@ import com.classical.aono.classicalcat.fragment.SettingFragment;
  * Created by gotha on 2017/10/29.
  */
 
-public class SettingsActivity  extends AppCompatActivity {
-    //private SwipeBackLayout mSwipeBackLayout;
-    private Toolbar mToolbar;
+public class SettingsActivity  extends AppCompatActivity   {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //ButterKnife.bind(this);
         setContentView(R.layout.activity_settings);
-        //setTitle("设置");
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
-        mToolbar.setTitle("设置");
+        setTitle("设置");
+//        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(mToolbar);
+//        mToolbar.setTitle("设置");
 
         getFragmentManager()
                 .beginTransaction()
@@ -60,6 +61,16 @@ public class SettingsActivity  extends AppCompatActivity {
 //        mSwipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
     }
 
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_settings);
+//        // Display the fragment as the main content.
+//        getFragmentManager().beginTransaction()
+//                .replace(android.R.id.content, new SettingFragment())
+//                .commit();
+//        PreferenceManager.setDefaultValues(this, R.xml.preferences_settings, false);
+//    }
 
 
 }

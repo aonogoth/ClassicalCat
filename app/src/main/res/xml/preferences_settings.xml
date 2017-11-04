@@ -3,7 +3,6 @@
     <PreferenceCategory
         android:title="阅读设置">
         <ListPreference
-            android:defaultValue="1"
             android:dialogTitle="@string/settings_list_preference_dialog_title1"
             android:entries="@array/zitidaxiao_title"
             android:entryValues="@array/zitidaxiao_value"
@@ -13,7 +12,6 @@
 
         <ListPreference
             android:dialogTitle="@string/settings_list_preference_dialog_title2"
-            android:defaultValue="1"
             android:entries="@array/hangjianju_title"
             android:entryValues="@array/hangjianju_value"
             android:key="hangjianjushezhi"

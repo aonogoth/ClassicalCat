@@ -90,7 +90,7 @@ public class BookDetailActivity extends AppCompatActivity implements Updatable{
 
             ImageView ivImage = (ImageView) findViewById(R.id.ivImage);
             Glide.with(ivImage.getContext())
-                    .load("http://118.178.95.56:8086/UploadFiles/"+mBook.getImageUrlDetail())
+                    .load("http://aono.yhdjmj.com/UploadFiles/"+mBook.getImageUrlDetail())
                     .fitCenter()
                     .into(ivImage);
 
