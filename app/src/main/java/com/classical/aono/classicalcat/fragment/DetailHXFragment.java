@@ -40,12 +40,8 @@ public class DetailHXFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail_hx, null);
         TextView tvInfo = (TextView) view.findViewById(R.id.tvInfo);
-//        MaterialApplication ma = (MaterialApplication)getActivity().getApplication();
-//        aaa = ma.getextLine();
-//        bbb = ma.getextSize();
-
-//        Log.e("aaa",aaa+"aono");
-//        Log.e("bbb",bbb+"aono");
+        aaa = PreferenceManager.getDefaultSharedPreferences(getContext()).getAll().get("hangjianjushezhi").toString();
+        bbb = PreferenceManager.getDefaultSharedPreferences(getContext()).getAll().get("zihaoshezhi").toString();
         if(aaa == "" || aaa.isEmpty())
         {
             tvInfo.setLineSpacing(1,1.5f);
