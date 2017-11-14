@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -41,7 +43,7 @@ import java.util.List;
  * Created by gotha on 2017/10/11.
  */
 
-public class AboutFragment extends Fragment  implements Updatable {
+public class AboutFragment extends Fragment {
 
     private TextView mAboutView1;
     private TextView mAboutView2;
@@ -50,8 +52,8 @@ public class AboutFragment extends Fragment  implements Updatable {
     private Button mAboutFeedbackButton;
 
     private AboutSupplier aboutSupplier;
-    private Repository<Result<ResultOut>> sendfbRepository;
-    private SearchObservable searchObservable;
+    //private Repository<Result<ResultOut>> sendfbRepository;
+    //private SearchObservable searchObservable;
 
     @Nullable
     @Override
@@ -68,48 +70,59 @@ public class AboutFragment extends Fragment  implements Updatable {
         mAboutFeedbackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("aaa",mAboutFeedbackView.getText().toString());
-                //setUpRepository(mAboutFeedbackView.getText().toString());
-                mAboutFeedbackView.setText("");
-                searchObservable = new AboutFragment.SearchObservable();
-                aboutSupplier = new AboutSupplier(mAboutFeedbackView.getText().toString());
-                //ResultOut ro = aboutSupplier.get().get();
-                sendfbRepository = Repositories
-                        .repositoryWithInitialValue(Result.<ResultOut>absent())
-                        .observe(searchObservable)
-                        .onUpdatesPerLoop()
-                        .goTo(ThreadPool.executor)
-                        .thenGetFrom(aboutSupplier)
-                        .compile();
-//                ResultOut ro = sendfbRepository.get().get();
-//                Toast.makeText(getContext(),ro.getSuccess(),Toast.LENGTH_SHORT).show();
+                new Thread(networkTask).start();
             }
         });
 
         return view;
     }
 
-    @Override
-    public void update() {
-        if (sendfbRepository.get().isPresent()) {
-            ResultOut ro = sendfbRepository.get().get();
-            Toast.makeText(getContext(),ro.getSuccess(),Toast.LENGTH_SHORT).show();
-        }
-    }
-    private void setUpRepository(String content) {
-        searchObservable = new AboutFragment.SearchObservable();
-        aboutSupplier = new AboutSupplier(content);
-        sendfbRepository = Repositories
-                .repositoryWithInitialValue(Result.<ResultOut>absent())
-                .observe(searchObservable)
-                .onUpdatesPerLoop()
-                .goTo(ThreadPool.executor)
-                .thenGetFrom(aboutSupplier)
-                .compile();
-    }
+    Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+//            if(msg.obj == "true")
+//            {
+                mAboutFeedbackView.setText("");
+                Toast.makeText(getContext(),"您的建议已经提交...感谢！",Toast.LENGTH_LONG).show();
+           // }
+            super.handleMessage(msg);
 
-    public class SearchObservable extends BaseObservable {
-    }
+        }
+
+    };
+    Runnable networkTask = new Runnable() {
+        @Override
+        public void run() {
+            // TODO
+            Message msg = new Message();
+            aboutSupplier = new AboutSupplier(mAboutFeedbackView.getText().toString());
+            ResultOut ro = aboutSupplier.get().get();
+            msg.obj = ro.getSuccess().toString();
+            mHandler.sendMessage(msg);
+        }
+    };
+
+//    @Override
+//    public void update() {
+//        if (sendfbRepository.get().isPresent()) {
+//            ResultOut ro = sendfbRepository.get().get();
+//            Toast.makeText(getContext(),ro.getSuccess(),Toast.LENGTH_SHORT).show();
+//        }
+//    }
+//    private void setUpRepository(String content) {
+//        searchObservable = new AboutFragment.SearchObservable();
+//        aboutSupplier = new AboutSupplier(content);
+//        sendfbRepository = Repositories
+//                .repositoryWithInitialValue(Result.<ResultOut>absent())
+//                .observe(searchObservable)
+//                .onUpdatesPerLoop()
+//                .goTo(ThreadPool.executor)
+//                .thenGetFrom(aboutSupplier)
+//                .compile();
+//    }
+//
+//    public class SearchObservable extends BaseObservable {
+//    }
 
     /**
      * 获取本地软件版本号名称

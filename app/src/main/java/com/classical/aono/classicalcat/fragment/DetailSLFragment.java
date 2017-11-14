@@ -34,8 +34,12 @@ public class DetailSLFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail_sl, null);
         TextView tvInfo = (TextView) view.findViewById(R.id.tvInfo);
-        aaa = PreferenceManager.getDefaultSharedPreferences(getContext()).getAll().get("hangjianjushezhi").toString();
-        bbb = PreferenceManager.getDefaultSharedPreferences(getContext()).getAll().get("zihaoshezhi").toString();
+        try
+        {
+            aaa = PreferenceManager.getDefaultSharedPreferences(getContext()).getAll().get("hangjianjushezhi").toString();
+            bbb = PreferenceManager.getDefaultSharedPreferences(getContext()).getAll().get("zihaoshezhi").toString();
+        }catch (Exception ex){}
+
         if(aaa == "" || aaa.isEmpty())
         {
             tvInfo.setLineSpacing(1,1.5f);
